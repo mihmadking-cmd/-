@@ -1,58 +1,65 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مرحبا - GitHub Pages</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .container {
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-            text-align: center;
-            max-width: 600px;
-        }
-        h1 {
-            color: #333;
-            font-size: 2.5em;
-            margin-bottom: 20px;
-        }
-        p {
-            color: #666;
-            font-size: 1.1em;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-        .success {
-            color: #4CAF50;
-            font-weight: bold;
-            font-size: 1.2em;
-        }
-    </style>
+    <title>تعديل الصور</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>مرحباً بك! 👋</h1>
-        <p>تم تفعيل <span class="success">GitHub Pages</span> بنجاح!</p>
-        <p>موقعك الآن متاح على:</p>
-        <p><strong>https://mihmadking-cmd.github.io</strong></p>
-        <p style="margin-top: 30px; color: #999; font-size: 0.9em;">
-            يمكنك تعديل هذا الملف (index.html) لإضافة محتواك الخاص
-        </p>
+        <header>
+            <h1>🖼️ تعديل الصور</h1>
+            <p>أداة احترافية لتعديل الصور بكل سهولة</p>
+        </header>
+        
+        <main>
+            <section class="upload-section">
+                <h2>رفع صورة</h2>
+                <div class="upload-area">
+                    <input type="file" id="imageInput" accept="image/*" />
+                    <label for="imageInput">اختر صورة أو اسحبها هنا</label>
+                </div>
+            </section>
+
+            <section class="editor-section" id="editorSection" style="display: none;">
+                <h2>محرر الصور</h2>
+                <div class="editor-container">
+                    <canvas id="canvas"></canvas>
+                </div>
+                
+                <div class="controls">
+                    <div class="control-group">
+                        <label for="brightnessSlider">السطوع</label>
+                        <input type="range" id="brightnessSlider" min="0" max="200" value="100">
+                        <span id="brightnessValue">100%</span>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="contrastSlider">التباين</label>
+                        <input type="range" id="contrastSlider" min="0" max="200" value="100">
+                        <span id="contrastValue">100%</span>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="saturationSlider">التشبع</label>
+                        <input type="range" id="saturationSlider" min="0" max="200" value="100">
+                        <span id="saturationValue">100%</span>
+                    </div>
+                    
+                    <div class="button-group">
+                        <button id="resetBtn" class="btn btn-secondary">إعادة تعيين</button>
+                        <button id="downloadBtn" class="btn btn-primary">تحميل الصورة</button>
+                    </div>
+                </div>
+            </section>
+
+            <footer>
+                <p>© 2026 - تعديل الصور | جميع الحقوق محفوظة</p>
+            </footer>
+        </main>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
