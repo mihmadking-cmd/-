@@ -1,65 +1,89 @@
-<!-- تم التحديث في 2026-07-12 -->
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>تعديل الصور - محرر صور احترافي</title>
+    <title>محرر الصور - ضع نفسك في الملعب</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>🖼️ تعديل الصور</h1>
-            <p>أداة احترافية لتعديل الصور بكل سهولة</p>
+            <h1>🏟️ محرر الصور - ملعب الأحلام</h1>
+            <p>ضع صورتك في ملعب يهتف مع الجمهور!</p>
         </header>
-        
-        <main>
-            <section class="upload-section">
-                <h2>رفع صورة</h2>
-                <div class="upload-area">
-                    <input type="file" id="imageInput" accept="image/*" />
-                    <label for="imageInput">اختر صورة أو اسحبها هنا</label>
-                </div>
-            </section>
 
-            <section class="editor-section" id="editorSection" style="display: none;">
-                <h2>محرر الصور</h2>
-                <div class="editor-container">
-                    <canvas id="canvas"></canvas>
+        <div class="main-content">
+            <!-- قسم الإدخال -->
+            <div class="upload-section">
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-icon">📸</div>
+                    <h3>اسحب الصورة هنا</h3>
+                    <p>أو انقر لاختيار صورة من جهازك</p>
+                    <input type="file" id="imageInput" accept="image/*" hidden>
                 </div>
+            </div>
+
+            <!-- قسم الخيارات -->
+            <div class="options-section">
+                <h3>خيارات التحرير:</h3>
                 
-                <div class="controls">
-                    <div class="control-group">
-                        <label for="brightnessSlider">السطوع</label>
-                        <input type="range" id="brightnessSlider" min="0" max="200" value="100">
-                        <span id="brightnessValue">100%</span>
-                    </div>
-                    
-                    <div class="control-group">
-                        <label for="contrastSlider">التباين</label>
-                        <input type="range" id="contrastSlider" min="0" max="200" value="100">
-                        <span id="contrastValue">100%</span>
-                    </div>
-                    
-                    <div class="control-group">
-                        <label for="saturationSlider">التشبع</label>
-                        <input type="range" id="saturationSlider" min="0" max="200" value="100">
-                        <span id="saturationValue">100%</span>
-                    </div>
-                    
-                    <div class="button-group">
-                        <button id="resetBtn" class="btn btn-secondary">إعادة تعيين</button>
-                        <button id="downloadBtn" class="btn btn-primary">تحميل الصورة</button>
-                    </div>
+                <div class="option-group">
+                    <label for="stadium">نوع الملعب:</label>
+                    <select id="stadium">
+                        <option value="soccer">ملعب كرة القدم 🏟️</option>
+                        <option value="basketball">ملعب كرة السلة 🏀</option>
+                        <option value="cricket">ملعب الكريكيت 🏏</option>
+                        <option value="concert">حفل موسيقي 🎤</option>
+                    </select>
                 </div>
-            </section>
 
-            <footer>
-                <p>© 2026 - تعديل الصور | جميع الحقوق محفوظة</p>
-            </footer>
-        </main>
+                <div class="option-group">
+                    <label for="crowd">كثافة الجمهور:</label>
+                    <input type="range" id="crowd" min="1" max="5" value="3">
+                    <span id="crowdValue">عالية</span>
+                </div>
+
+                <div class="option-group">
+                    <label for="position">موضع الشخص:</label>
+                    <select id="position">
+                        <option value="center">الوسط (الاحتفالات) 🎉</option>
+                        <option value="left">اليسار</option>
+                        <option value="right">اليمين</option>
+                        <option value="top">الأعلى</option>
+                    </select>
+                </div>
+
+                <div class="option-group">
+                    <label for="brightness">السطوع:</label>
+                    <input type="range" id="brightness" min="50" max="150" value="100">
+                    <span id="brightnessValue">100%</span>
+                </div>
+
+                <div class="option-group">
+                    <label for="cheering">مستوى الهتاف:</label>
+                    <input type="range" id="cheering" min="1" max="5" value="3">
+                    <span id="cheeringValue">عالي</span>
+                </div>
+            </div>
+
+            <!-- قسم المعاينة -->
+            <div class="preview-section">
+                <h3>المعاينة:</h3>
+                <canvas id="previewCanvas" width="600" height="500"></canvas>
+            </div>
+
+            <!-- أزرار التحكم -->
+            <div class="button-group">
+                <button id="processBtn" class="btn btn-primary">🎬 معالجة الصورة</button>
+                <button id="downloadBtn" class="btn btn-success" disabled>⬇️ تحميل الصورة</button>
+                <button id="resetBtn" class="btn btn-secondary">🔄 إعادة تعيين</button>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2026 محرر الصور - صُنع بـ ❤️</p>
+        </footer>
     </div>
 
     <script src="script.js"></script>
